@@ -1,19 +1,19 @@
 <template>
   <v-app>
     <v-main>
-      <Calendar/>
+      <RegisterForm/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Calendar from './components/Calendar';
+import RegisterForm from './components/RegisterForm';
 
 export default {
   name: 'App',
 
   components: {
-    Calendar,
+    RegisterForm,
   },
 
   data: () => ({

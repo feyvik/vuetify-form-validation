@@ -1,4 +1,4 @@
-# vuetify-calendar
+# vuetify-form-validation
 
 ## Project setup
 ```
