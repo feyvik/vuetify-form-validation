@@ -59,6 +59,7 @@
             <v-col cols="6">
               <v-text-field
                 v-model="password"
+                type="password"
                 :rules="passwordRules"
                 label="Password"
                 required
@@ -68,6 +69,7 @@
               <v-text-field
                 v-model="retypepassword"
                 :rules="passwordRules"
+                type="password"
                 label="Re-type Password"
                 required
               ></v-text-field>
@@ -75,18 +77,19 @@
           </v-row>
          
           <v-checkbox
-            v-model="checkbox"
+            v-model="firstcheckbox"
             :rules="[v => !!v || 'You must agree to continue!']"
             label="I agree with Terms and Conditions"
             required
           ></v-checkbox>
         
           <v-checkbox
-            v-model="checkbox"
+            v-model="seccheckbox"
             :rules="[v => !!v || 'You must agree to receive!']"
             label="I want to receive LogRocket Emails"
             required
           ></v-checkbox>
+
           <v-btn class="purple darken-2 white--text mt-5"  @click="submitForm"> 
             Register
           </v-btn>
@@ -115,8 +118,14 @@ export default {
       v => !!v || 'Password is required',
       v => /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(v) || 'Password must contain at least lowercase letter, one number, a special character and one uppercase letter',
     ],
-    checkbox: false,
+    firstcheckbox: false,
+    seccheckbox: false,
   }),
+  methods: {
+      submitForm () {
+        this.$refs.form.validate()
+      },
+    },
 };
 </script>
 <style scoped>
